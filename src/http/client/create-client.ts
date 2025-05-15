@@ -1,17 +1,9 @@
 import { env } from "@/env";
-import { AddressModel } from "@/models";
+import { ClientModel } from "@/src/models";
 import { randomUUID } from "node:crypto";
-import { CreateAddressParams } from "../types";
+import { CreateClientParams } from "../types";
 
-export async function createAddress({
-  city,
-  district,
-  street,
-  number,
-  complement,
-  cep,
-  sessionId,
-}: CreateAddressParams): Promise<AddressModel> {
+export async function createClient({ sessionId }: CreateClientParams): Promise<ClientModel> {
   const response = await fetch(`${env.API_URL}/clients`, {
     method: "POST",
     headers: {
@@ -20,12 +12,6 @@ export async function createAddress({
     body: JSON.stringify({
       id: randomUUID(),
       session_id: sessionId,
-      city,
-      district,
-      street,
-      number,
-      complement,
-      cep,
       created_at: new Date(),
       updated_at: new Date(),
     }),
@@ -36,12 +22,6 @@ export async function createAddress({
   return {
     id: data.id,
     sessionId: data.session_id,
-    city: data.city,
-    district: data.district,
-    street: data.street,
-    number: data.number,
-    complement: data.complement,
-    cep: data.cep,
     createdAt: data.created_at,
     updatedAt: data.updated_at,
   };
