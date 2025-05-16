@@ -5,9 +5,7 @@ export default function Layout() {
     <Stack
       screenOptions={{
         headerShown: false,
-        contentStyle: {
-          padding: 10,
-        },
+        contentStyle: {},
       }}
     />
   );
