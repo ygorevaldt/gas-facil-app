@@ -14,7 +14,10 @@
       "backgroundColor": "#09090b"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Este aplicativo precisa acessar sua localização para melhorar a experiência de entrega."
+      }
     },
     "android": {
       "adaptiveIcon": {

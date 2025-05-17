@@ -5,6 +5,8 @@ export const colors = {
   },
   gray: {
     100: "#f3f3f3",
+    300: "#d1d5dc",
+    500: "#6a7282",
   },
   green: {
     900: "#178b68",

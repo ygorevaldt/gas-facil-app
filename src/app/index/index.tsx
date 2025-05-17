@@ -1,5 +1,6 @@
+import { Button } from "@/components/button";
+import { router } from "expo-router";
 import { Image, View } from "react-native";
-import { Button } from "./button";
 import { Header } from "./header";
 import { styles } from "./styles";
 
@@ -13,7 +14,7 @@ export default function Index() {
           source={require("@/assets/logo-home.png")}
           resizeMode="contain"
         />
-        <Button />
+        <Button text="Faça seu pedido" onPress={() => router.navigate("/location")} />
       </View>
     </View>
   );
