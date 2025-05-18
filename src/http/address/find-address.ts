@@ -26,6 +26,8 @@ export async function findAddress({
       number,
       complement,
       cep,
+      latitude,
+      longitude,
       created_at,
       updated_at,
     } = responseJson;
@@ -41,7 +43,9 @@ export async function findAddress({
       cep: cep,
       createdAt: created_at,
       updatedAt: updated_at,
-    } as AddressModel;
+      latitude,
+      longitude,
+    };
   } catch (error) {
     console.log("error", error);
     return undefined;

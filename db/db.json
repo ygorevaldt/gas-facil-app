@@ -17,6 +17,8 @@
       "number": 6170,
       "cep": 95535000,
       "complement": "Casa",
+      "latitude": -29.584827,
+      "longitude": -50.0741751,
       "created_at": "2025-05-14T23:21:42.195Z",
       "updated_at": "2025-05-14T23:21:42.195Z"
     }

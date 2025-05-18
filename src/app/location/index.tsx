@@ -1,5 +1,7 @@
 import { Button } from "@/components/button";
+import { useUser } from "@/contexts";
 import * as Loc from "expo-location";
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { Form } from "./form";
@@ -11,9 +13,15 @@ import { styles } from "./styles";
 export default function Location() {
   const [location, setLocation] = useState<Loc.LocationObjectCoords>();
   const [address, setAddress] = useState("");
+  const { address: userAddres } = useUser();
 
   useEffect(() => {
     (async () => {
+      if (userAddres) {
+        router.navigate("/catalog");
+        return;
+      }
+
       const permission = await getLocationPermission();
       if (!permission) return;
 
@@ -33,6 +41,7 @@ export default function Location() {
 
   async function getCurrentLocation() {
     const currentLocation = await Loc.getCurrentPositionAsync({});
+    console.log(currentLocation.coords);
     setLocation(currentLocation.coords);
     return currentLocation;
   }

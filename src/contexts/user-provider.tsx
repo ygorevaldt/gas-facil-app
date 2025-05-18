@@ -5,10 +5,19 @@ import { getClientId } from "@/utils";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 
-const UserContext = createContext<{ user: UserModel; address?: AddressModel } | null>(null);
+type UserContextParams = {
+  user: UserModel;
+  address?: AddressModel;
+  updateUser: (newUser: Partial<UserModel>) => void;
+  updateAddress: (newAddress: Partial<AddressModel>) => void;
+};
+
+const UserContext = createContext<UserContextParams | null>(null);
 
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<{ user: UserModel; address?: AddressModel } | null>(null);
+  const [userData, setUserData] = useState<{ user: UserModel; address?: AddressModel } | null>(
+    null
+  );
 
   useEffect(() => {
     (async () => {
@@ -19,12 +28,21 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
       ]);
 
       if (!user) return;
-
-      setUser({ user, address });
+      setUserData({ user, address });
     })();
   }, []);
 
-  if (!user) {
+  const updateUser = (newUser: Partial<UserModel>) => {
+    setUserData((prev) => (prev ? { ...prev, user: { ...prev.user, ...newUser } } : prev));
+  };
+
+  const updateAddress = (newAddress: Partial<AddressModel>) => {
+    setUserData((prev) =>
+      prev ? { ...prev, address: { ...prev.address, ...newAddress } as AddressModel } : prev
+    );
+  };
+
+  if (!userData) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <ActivityIndicator size="large" />
@@ -32,11 +50,16 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
   }
 
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ ...userData, updateUser, updateAddress }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
 export function useUser() {
   const context = useContext(UserContext);
+
   if (!context) throw new Error("useClientId must be used within ClientIdProvider");
   return context;
 }
