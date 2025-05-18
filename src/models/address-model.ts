@@ -7,6 +7,8 @@ export interface AddressModel {
   number: number;
   complement: string;
   cep: number;
+  latitude: number;
+  longitude: number;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -1,7 +1,8 @@
 export default {
   expo: {
-    name: "SeuApp",
-    slug: "seu-app",
+    name: "gas-facil-app",
+    slug: "gas-facil-app",
+    scheme: "gas-facil-app",
     extra: {
       API_URL: process.env.API_URL,
     },

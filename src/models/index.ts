@@ -1,2 +1,2 @@
 export * from "./address-model";
-export * from "./client-model";
+export * from "./user-model";

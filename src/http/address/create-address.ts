@@ -1,6 +1,6 @@
 import { env } from "@/env";
-import { AddressModel } from "@/src/models";
-import { randomUUID } from "node:crypto";
+import { AddressModel } from "@/models/address-model";
+import { v4 as uuid } from "uuid";
 import { CreateAddressParams } from "../types";
 
 export async function createAddress({
@@ -10,6 +10,8 @@ export async function createAddress({
   number,
   complement,
   cep,
+  latitude,
+  longitude,
   sessionId,
 }: CreateAddressParams): Promise<AddressModel> {
   const response = await fetch(`${env.API_URL}/clients`, {
@@ -18,7 +20,7 @@ export async function createAddress({
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      id: randomUUID(),
+      id: uuid(),
       session_id: sessionId,
       city,
       district,
@@ -26,23 +28,27 @@ export async function createAddress({
       number,
       complement,
       cep,
+      latitude,
+      longitude,
       created_at: new Date(),
       updated_at: new Date(),
     }),
   });
 
-  const { data } = await response.json();
+  const responseJson = await response.json();
 
   return {
-    id: data.id,
-    sessionId: data.session_id,
-    city: data.city,
-    district: data.district,
-    street: data.street,
-    number: data.number,
-    complement: data.complement,
-    cep: data.cep,
-    createdAt: data.created_at,
-    updatedAt: data.updated_at,
+    id: responseJson.id,
+    sessionId: responseJson.session_id,
+    city: responseJson.city,
+    district: responseJson.district,
+    street: responseJson.street,
+    number: responseJson.number,
+    complement: responseJson.complement,
+    cep: responseJson.cep,
+    latitude: responseJson.latitude,
+    longitude: responseJson.longitude,
+    createdAt: responseJson.created_at,
+    updatedAt: responseJson.updated_at,
   };
 }

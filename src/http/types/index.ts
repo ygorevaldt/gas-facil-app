@@ -1,4 +1,4 @@
-export type CreateClientParams = {
+export type CreateUserParams = {
   sessionId: string;
 };
 
@@ -8,6 +8,16 @@ export type CreateAddressParams = {
   district: string;
   street: string;
   number: number;
-  complement?: string;
   cep: number;
+  latitude: number;
+  longitude: number;
+  complement?: string;
+};
+
+export type FindUserBySessionIdParams = {
+  sessionId: string;
+};
+
+export type findAddressParams = {
+  sessionId: string;
 };

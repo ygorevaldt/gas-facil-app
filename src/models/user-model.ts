@@ -1,4 +1,4 @@
-export interface ClientModel {
+export interface UserModel {
   id: string;
   sessionId: string;
   createdAt: Date;
