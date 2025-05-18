@@ -3,7 +3,7 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start:api": "npx json-server ./db/db.json",
+    "start:api": "npx json-server ./db/db.json --port 3333",
     "start": "expo start --port 8000",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
+    "@react-native-async-storage/async-storage": "^2.1.2",
     "@react-navigation/native": "^7.1.6",
+    "dotenv": "^16.5.0",
     "expo": "~53.0.9",
     "expo-font": "~13.3.1",
     "expo-linking": "~7.1.5",
@@ -25,6 +27,7 @@
     "expo-status-bar": "~2.2.3",
     "expo-system-ui": "~5.0.7",
     "expo-web-browser": "~14.1.6",
+    "nanoid": "^5.1.5",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.2",
@@ -32,7 +35,8 @@
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.10.0",
-    "react-native-web": "~0.20.0"
+    "react-native-web": "~0.20.0",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

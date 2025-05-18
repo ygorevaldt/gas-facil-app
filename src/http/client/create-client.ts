@@ -1,5 +1,5 @@
 import { env } from "@/env";
-import { ClientModel } from "@/src/models";
+import { ClientModel } from "@/models";
 import { randomUUID } from "node:crypto";
 import { CreateClientParams } from "../types";
 
