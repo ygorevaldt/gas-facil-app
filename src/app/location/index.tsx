@@ -1,5 +1,5 @@
 import { Button } from "@/components/button";
-import { useUser } from "@/contexts";
+import { useUser } from "@/hooks";
 import * as Loc from "expo-location";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
@@ -41,7 +41,6 @@ export default function Location() {
 
   async function getCurrentLocation() {
     const currentLocation = await Loc.getCurrentPositionAsync({});
-    console.log(currentLocation.coords);
     setLocation(currentLocation.coords);
     return currentLocation;
   }
@@ -59,7 +58,7 @@ export default function Location() {
       <Header />
       <Form address={address} setAddress={setAddress} />
       {location ? <Map location={location} /> : <SkeletonMap />}
-      <Button text="Confirmar localização" />
+      <Button text="Confirmar localização" onPress={() => router.navigate("/location-details")} />
     </View>
   );
 }

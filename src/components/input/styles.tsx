@@ -3,6 +3,10 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
+    width: "100%",
+    gap: 4,
+  },
+  input: {
     height: 52,
     width: "100%",
     backgroundColor: colors.gray[100],
@@ -11,5 +15,9 @@ export const styles = StyleSheet.create({
     borderColor: colors.blue[500],
     padding: 10,
     fontSize: 16,
+  },
+  label: {
+    fontSize: 14,
+    fontWeight: "bold",
   },
 });

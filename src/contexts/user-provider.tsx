@@ -2,7 +2,7 @@ import { findAddress } from "@/http/address";
 import { findUserBySessionId } from "@/http/user/find-user-by-session-id";
 import { AddressModel, UserModel } from "@/models";
 import { getClientId } from "@/utils";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 
 type UserContextParams = {
@@ -12,7 +12,7 @@ type UserContextParams = {
   updateAddress: (newAddress: Partial<AddressModel>) => void;
 };
 
-const UserContext = createContext<UserContextParams | null>(null);
+export const UserContext = createContext<UserContextParams | null>(null);
 
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [userData, setUserData] = useState<{ user: UserModel; address?: AddressModel } | null>(
@@ -56,10 +56,3 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     </UserContext.Provider>
   );
 };
-
-export function useUser() {
-  const context = useContext(UserContext);
-
-  if (!context) throw new Error("useClientId must be used within ClientIdProvider");
-  return context;
-}

@@ -47,7 +47,6 @@ export async function findAddress({
       longitude,
     };
   } catch (error) {
-    console.log("error", error);
     return undefined;
   }
 }

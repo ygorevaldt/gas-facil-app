@@ -14,7 +14,7 @@ export async function createAddress({
   longitude,
   sessionId,
 }: CreateAddressParams): Promise<AddressModel> {
-  const response = await fetch(`${env.API_URL}/clients`, {
+  const response = await fetch(`${env.API_URL}/addresses`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export async function createAddress({
   const responseJson = await response.json();
 
   return {
-    id: responseJson.id,
+    id: responseJson?.id,
     sessionId: responseJson.session_id,
     city: responseJson.city,
     district: responseJson.district,
