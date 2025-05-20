@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    gap: 16,
+    gap: 32,
     paddingVertical: 80,
     paddingHorizontal: 18,
   },
@@ -38,12 +38,24 @@ export const styles = StyleSheet.create({
   },
   options: {
     width: "100%",
+    marginTop: 32,
     gap: 8,
   },
   optionsLabel: {
     fontSize: 16,
-    fontWeight: "semibold",
+    fontWeight: "bold",
     marginBottom: 8,
+    textAlign: "left",
   },
-  optionsList: {},
+  optionsList: {
+    flexDirection: "row",
+    gap: 8,
+    width: "100%",
+  },
+  button: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 64,
+  },
 });

@@ -1,13 +1,14 @@
 import { Button } from "@/components/button";
 import { router } from "expo-router";
-import { Image, View } from "react-native";
-import { Header } from "./header";
+import { Image, Text, View } from "react-native";
 import { styles } from "./styles";
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Header />
+      <View style={styles.header}>
+        <Text style={styles.headerText}>GÁS FÁCIL</Text>
+      </View>
       <View style={styles.content}>
         <Image
           style={styles.image}

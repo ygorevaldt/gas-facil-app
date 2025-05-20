@@ -1,9 +1,11 @@
+import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { Option, OptionType } from "@/components/option";
 import { colors } from "@/constants/colors";
 import { MaterialIcons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { styles } from "./styles";
 
 export default function LocationDetails() {
@@ -39,20 +41,20 @@ export default function LocationDetails() {
       </View>
       <View style={styles.options}>
         <Text style={styles.optionsLabel}>Selecionar como:</Text>
-        <FlatList
-          horizontal
-          style={styles.optionsList}
-          data={options}
-          keyExtractor={(item) => item.text}
-          renderItem={({ item }) => (
+        <View style={styles.optionsList}>
+          {options.map((item) => (
             <Option
+              key={item.text}
               text={item.text}
               icon={item.icon}
               isSelected={selected === item.text}
               onPress={() => setSelected(item.text)}
             />
-          )}
-        />
+          ))}
+        </View>
+      </View>
+      <View style={styles.button}>
+        <Button text="Confirmar" onPress={() => router.navigate("/catalog")} />
       </View>
     </View>
   );

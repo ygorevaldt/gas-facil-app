@@ -14,15 +14,15 @@ export type OptionType = {
   icon: keyof typeof MaterialIcons.glyphMap;
 };
 
-export function Option(props: OptionProps) {
-  const iconColor = props.isSelected ? colors.white : colors.blue[500];
-  const backgroundColor = props.isSelected ? colors.blue[500] : colors.white;
-  const textColor = props.isSelected ? colors.white : colors.blue[500];
+export function Option({ text, icon, isSelected, ...rest }: OptionProps) {
+  const iconColor = isSelected ? colors.white : colors.blue[500];
+  const backgroundColor = isSelected ? colors.blue[500] : colors.white;
+  const textColor = isSelected ? colors.white : colors.blue[500];
 
   return (
-    <Pressable style={[styles.container, { backgroundColor }]}>
-      <MaterialIcons name={props.icon} size={16} color={iconColor} />
-      <Text style={[styles.text, { color: textColor }]}></Text>
+    <Pressable {...rest} style={[styles.container, { backgroundColor }]}>
+      <MaterialIcons name={icon} size={16} color={iconColor} />
+      <Text style={[styles.text, { color: textColor }]}>{text}</Text>
     </Pressable>
   );
 }
