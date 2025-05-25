@@ -1,10 +1,12 @@
+import { Filter } from "@/components/filter";
 import { LocationNavLayout } from "@/components/location-nav-layout";
-import { Text } from "react-native";
+import { ProductsList } from "@/components/product-list";
 
 export default function saved() {
   return (
     <LocationNavLayout>
-      <Text>Página de fornecedores salvos</Text>
+      <Filter />
+      <ProductsList />
     </LocationNavLayout>
   );
 }
