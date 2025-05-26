@@ -5,7 +5,7 @@ import "react-native-get-random-values";
 
 export default function Caralog() {
   return (
-    <LocationNavLayout>
+    <LocationNavLayout title="Catalogo">
       <Filter />
       <ProductsList />
     </LocationNavLayout>

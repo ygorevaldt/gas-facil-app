@@ -1,4 +1,5 @@
 import { Image, Text, View } from "react-native";
+import { StarRating } from "../star-rating";
 import { styles } from "./styles";
 
 interface CatalogItemProps {
@@ -11,7 +12,9 @@ interface CatalogItemProps {
 export function ProductListItem(props: CatalogItemProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.evaluation}>{props.evaluationNote}</Text>
+      <View style={styles.starRating}>
+        <StarRating rating={props.evaluationNote} />
+      </View>
       <View style={styles.content}>
         <Image style={styles.image} source={require("@/assets/gas-icon.png")} />
         <View style={styles.contentInfo}>

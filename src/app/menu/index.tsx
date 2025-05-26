@@ -3,7 +3,7 @@ import { colors } from "@/constants/colors";
 import { menus } from "@/constants/menus";
 import { CLIENT_NAME } from "@/constants/names";
 import { MaterialIcons } from "@expo/vector-icons";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 
 export default function Menu() {
@@ -18,7 +18,7 @@ export default function Menu() {
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.listItem}>
+          <TouchableOpacity activeOpacity={0.7} style={styles.listItem} onPress={item.action}>
             <MaterialIcons
               style={styles.listItemIcon}
               name={item.icon}
@@ -26,7 +26,7 @@ export default function Menu() {
               color={colors.blue[500]}
             />
             <Text style={styles.listItemText}>{item.name}</Text>
-          </View>
+          </TouchableOpacity>
         )}
       />
       <NavigationBottomBar />

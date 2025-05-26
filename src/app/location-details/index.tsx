@@ -1,10 +1,11 @@
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { LocationHeader } from "@/components/location-header";
-import { Option, OptionType } from "@/components/option";
+import { OptionType } from "@/components/option";
+import { OptionsList } from "@/components/options-list.ts";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { styles } from "./styles";
 
 export default function LocationDetails() {
@@ -32,20 +33,7 @@ export default function LocationDetails() {
           type="textArea"
         />
       </View>
-      <View style={styles.options}>
-        <Text style={styles.optionsLabel}>Selecionar como:</Text>
-        <View style={styles.optionsList}>
-          {options.map((item) => (
-            <Option
-              key={item.text}
-              text={item.text}
-              icon={item.icon}
-              isSelected={selected === item.text}
-              onPress={() => setSelected(item.text)}
-            />
-          ))}
-        </View>
-      </View>
+      <OptionsList />
       <View style={styles.button}>
         <Button text="Confirmar" onPress={() => router.navigate("/catalog")} />
       </View>

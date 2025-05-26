@@ -40,4 +40,8 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
   },
+  starRating: {
+    width: "100%",
+    alignItems: "flex-end",
+  },
 });

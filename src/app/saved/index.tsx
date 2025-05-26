@@ -4,7 +4,7 @@ import { ProductsList } from "@/components/product-list";
 
 export default function saved() {
   return (
-    <LocationNavLayout>
+    <LocationNavLayout title="Produtos salvos">
       <Filter />
       <ProductsList />
     </LocationNavLayout>

@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    paddingHorizontal: 18,
+    paddingHorizontal: 12,
     gap: 16,
   },
   title: {

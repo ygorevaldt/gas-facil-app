@@ -11,4 +11,8 @@ export const styles = StyleSheet.create({
     gap: 10,
     paddingHorizontal: 18,
   },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
 });
