@@ -3,7 +3,6 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start:api": "npx json-server ./src/db/db.json --port 3333",
     "start": "expo start --port 8000",
     "android": "expo start --android",
     "ios": "expo start --ios",
