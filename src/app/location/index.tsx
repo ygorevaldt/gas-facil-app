@@ -1,6 +1,7 @@
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { useUser } from "@/hooks";
+import { findAddress } from "@/http/address";
 import * as Loc from "expo-location";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
@@ -12,11 +13,14 @@ import { styles } from "./styles";
 export default function Location() {
   const [location, setLocation] = useState<Loc.LocationObjectCoords>();
   const [address, setAddress] = useState("");
-  const { address: userAddres } = useUser();
+  const { user, updateAddress } = useUser();
 
   useEffect(() => {
     (async () => {
-      if (userAddres) {
+      const userAddress = await findAddress({
+        sessionId: user.sessionId,
+      });
+      if (userAddress) {
         router.navigate("/catalog");
         return;
       }
@@ -49,6 +53,14 @@ export default function Location() {
     if (reverseGeocode.length > 0) {
       let { street, city, region, postalCode } = reverseGeocode[0];
       setAddress(`${street}, ${city} - ${region}, ${postalCode}`);
+      updateAddress({
+        street: street || undefined,
+        city: city || undefined,
+        district: region || undefined,
+        cep: postalCode ? Number(postalCode) : undefined,
+        latitude: currentLocation.coords.latitude,
+        longitude: currentLocation.coords.longitude,
+      });
     }
   }
 

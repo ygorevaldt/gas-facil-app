@@ -1,50 +1,22 @@
 import { env } from "@/env";
 import { AddressModel } from "@/models";
+import axios from "axios";
 import { findAddressParams } from "../types";
 
 export async function findAddress({
   sessionId,
 }: findAddressParams): Promise<AddressModel | undefined> {
   try {
-    const params = new URLSearchParams({
-      session_id: sessionId,
-    });
-    const response = await fetch(`${env.API_URL}/addresses?${params.toString()}`, {
+    const response = await axios({
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      url: `${env.API_URL}/address/${sessionId}`,
     });
-
-    const [responseJson] = await response.json();
-    const {
-      id,
-      session_id,
-      city,
-      district,
-      street,
-      number,
-      complement,
-      cep,
-      latitude,
-      longitude,
-      created_at,
-      updated_at,
-    } = responseJson;
+    const { created_at, updated_at, ...rest } = response.data;
 
     return {
-      id: id,
-      sessionId: session_id,
-      city: city,
-      district: district,
-      street: street,
-      number: number,
-      complement: complement,
-      cep: cep,
+      ...rest,
       createdAt: created_at,
       updatedAt: updated_at,
-      latitude,
-      longitude,
     };
   } catch (error) {
     return undefined;

@@ -6,10 +6,16 @@ import { styles } from "./styles";
 
 interface OptionsList {
   label?: string;
+  onSelect?: (value: string) => void;
 }
 
 export function OptionsList(props: OptionsList) {
   const [selected, setSelected] = useState<string>(addressTypes[0].text);
+
+  const handleSelect = (value: string) => {
+    setSelected(value);
+    props.onSelect?.(value);
+  };
 
   return (
     <View style={styles.container}>
@@ -21,7 +27,7 @@ export function OptionsList(props: OptionsList) {
             text={item.text}
             icon={item.icon}
             isSelected={selected === item.text}
-            onPress={() => setSelected(item.text)}
+            onPress={() => handleSelect(item.text)}
           />
         ))}
       </View>

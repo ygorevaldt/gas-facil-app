@@ -4,14 +4,17 @@ export type CreateUserParams = {
 
 export type CreateAddressParams = {
   sessionId: string;
-  city: string;
-  district: string;
-  street: string;
-  number: number;
-  cep: number;
-  latitude: number;
-  longitude: number;
+  userId: string;
+  city?: string;
+  district?: string;
+  street?: string;
+  number?: number;
+  cep?: number;
+  latitude?: number;
+  longitude?: number;
   complement?: string;
+  reference?: string;
+  type?: string;
 };
 
 export type FindUserBySessionIdParams = {

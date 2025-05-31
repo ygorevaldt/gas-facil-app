@@ -1,6 +1,6 @@
 import { env } from "@/env";
 import { AddressModel } from "@/models/address-model";
-import { v4 as uuid } from "uuid";
+import axios from "axios";
 import { CreateAddressParams } from "../types";
 
 export async function createAddress({
@@ -9,46 +9,39 @@ export async function createAddress({
   street,
   number,
   complement,
+  reference,
+  type,
   cep,
   latitude,
   longitude,
   sessionId,
+  userId,
 }: CreateAddressParams): Promise<AddressModel> {
-  const response = await fetch(`${env.API_URL}/addresses`, {
+  const data = {
+    user_id: userId,
+    session_id: sessionId,
+    city,
+    district,
+    street,
+    number,
+    complement,
+    reference,
+    type,
+    cep,
+    latitude,
+    longitude,
+  };
+  const response = await axios({
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      id: uuid(),
-      session_id: sessionId,
-      city,
-      district,
-      street,
-      number,
-      complement,
-      cep,
-      latitude,
-      longitude,
-      created_at: new Date(),
-      updated_at: new Date(),
-    }),
+    url: `${env.API_URL}/address`,
+    data,
   });
 
-  const responseJson = await response.json();
+  const { created_at, updated_at, statusCode, ...rest } = await response.data;
 
   return {
-    id: responseJson?.id,
-    sessionId: responseJson.session_id,
-    city: responseJson.city,
-    district: responseJson.district,
-    street: responseJson.street,
-    number: responseJson.number,
-    complement: responseJson.complement,
-    cep: responseJson.cep,
-    latitude: responseJson.latitude,
-    longitude: responseJson.longitude,
-    createdAt: responseJson.created_at,
-    updatedAt: responseJson.updated_at,
+    ...rest,
+    updatedAt: updated_at,
+    createdAt: created_at,
   };
 }

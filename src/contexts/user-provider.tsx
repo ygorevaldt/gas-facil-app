@@ -1,7 +1,9 @@
 import { findAddress } from "@/http/address";
+import { createUser } from "@/http/user";
 import { findUserBySessionId } from "@/http/user/find-user-by-session-id";
 import { AddressModel, UserModel } from "@/models";
 import { getClientId } from "@/utils";
+import { AxiosError } from "axios";
 import React, { createContext, useEffect, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 
@@ -22,13 +24,24 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     (async () => {
       const sessionId = await getClientId();
-      const [user, address] = await Promise.all([
+      let [user, address] = await Promise.all([
         findUserBySessionId({ sessionId }),
         findAddress({ sessionId }),
       ]);
 
-      if (!user) return;
-      setUserData({ user, address });
+      if (!user) {
+        try {
+          user = await createUser({ sessionId });
+          setUserData({ user, address });
+        } catch (error) {
+          console.log(`Error to sabe user with session_id: ${sessionId}`);
+          if (error instanceof AxiosError) {
+            console.error(error.response?.data);
+          }
+        }
+      } else {
+        setUserData({ user, address });
+      }
     })();
   }, []);
 

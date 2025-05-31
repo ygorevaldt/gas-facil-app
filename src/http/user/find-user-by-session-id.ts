@@ -1,26 +1,18 @@
 import { env } from "@/env";
 import { UserModel } from "@/models";
+import axios from "axios";
 import { FindUserBySessionIdParams } from "../types";
 
 export async function findUserBySessionId({
   sessionId,
 }: FindUserBySessionIdParams): Promise<UserModel | undefined> {
   try {
-    const params = new URLSearchParams({
-      session_id: sessionId,
-    });
-
-    const response = await fetch(`${env.API_URL}/users?${params.toString()}`, {
+    const response = await axios({
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      url: `${env.API_URL}/user/${sessionId}`,
     });
 
-    const [responseJson] = await response.json();
-
-    const { id, session_id, created_at, updated_at } = responseJson;
-
+    const { id, session_id, created_at, updated_at } = response.data;
     return {
       id: id,
       sessionId: session_id,
