@@ -4,4 +4,6 @@ export interface ProductModel {
   seller: string;
   price: number;
   note: number;
+  createdAt: Date;
+  updatedAt: Date;
 }

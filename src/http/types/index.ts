@@ -17,10 +17,32 @@ export type CreateAddressParams = {
   type?: string;
 };
 
+export type UpdateAddressParams = {
+  sessionId: string;
+  userId: string;
+  city?: string;
+  district?: string;
+  street?: string;
+  number?: number;
+  cep?: number;
+  reference?: string;
+  type?: string;
+};
+
 export type FindUserBySessionIdParams = {
   sessionId: string;
 };
 
 export type findAddressParams = {
   sessionId: string;
+};
+
+export type fetchProductsResponse = {
+  id: string;
+  name: string;
+  seller: string;
+  price: number;
+  note: number;
+  created_at: Date;
+  updated_at: Date;
 };

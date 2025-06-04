@@ -1,7 +1,7 @@
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { LocationHeader } from "@/components/location-header";
-import { OptionsList } from "@/components/options-list.ts";
+import { OptionsList } from "@/components/options-list";
 import { useUser } from "@/hooks";
 import { createAddress } from "@/http/address";
 import { AddressFormData, addressSchema } from "@/schemas";
