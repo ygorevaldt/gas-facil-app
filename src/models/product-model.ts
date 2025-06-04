@@ -4,6 +4,8 @@ export interface ProductModel {
   seller: Seller;
   price: number;
   note: number;
+  sumNote: number;
+  amountNotes: number;
   createdAt: Date;
   updatedAt: Date;
 }

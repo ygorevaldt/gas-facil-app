@@ -11,9 +11,11 @@ export async function fetchProducts(): Promise<ProductModel[] | undefined> {
     });
     const products = response.data;
 
-    return products.map(({ seller, created_at, updated_at, ...rest }) => {
+    return products.map(({ seller, sum_note, amount_notes, created_at, updated_at, ...rest }) => {
       return {
         ...rest,
+        sumNote: sum_note,
+        amountNotes: amount_notes,
         createdAt: created_at,
         updatedAt: updated_at,
         seller: {

@@ -50,6 +50,8 @@ export type fetchProductsResponse = {
   };
   price: number;
   note: number;
+  sum_note: number;
+  amount_notes: number;
   created_at: Date;
   updated_at: Date;
 };

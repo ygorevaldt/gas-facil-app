@@ -20,6 +20,7 @@ export function ProductsList(props: ProductsListProps) {
         ? await fetchFavoriteProducts()
         : await fetchProducts();
       if (!registeredProducts) return;
+
       setProducts(registeredProducts);
     })();
   }, []);

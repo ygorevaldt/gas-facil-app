@@ -59,7 +59,7 @@ export default function Address() {
               <Input
                 label="CEP"
                 style={{ flex: 1 }}
-                value={value.toString()}
+                value={value?.toString()}
                 onChangeText={onChange}
                 error={errors.cep?.message}
               />
@@ -101,7 +101,7 @@ export default function Address() {
               <Input
                 label="Número"
                 style={{ flex: 1 }}
-                value={value.toString()}
+                value={value?.toString()}
                 onChangeText={onChange}
                 error={errors.number?.message}
               />
