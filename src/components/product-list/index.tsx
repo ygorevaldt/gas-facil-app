@@ -29,14 +29,7 @@ export function ProductsList(props: ProductsListProps) {
       style={styles.container}
       data={products}
       keyExtractor={(item) => item.id}
-      renderItem={({ item }) => (
-        <ProductListItem
-          productName={item.name}
-          seller={item.seller}
-          price={item.price.toString()}
-          evaluationNote={item.note}
-        />
-      )}
+      renderItem={({ item }) => <ProductListItem product={item} />}
       contentContainerStyle={styles.containerItems}
       showsVerticalScrollIndicator={false}
     />

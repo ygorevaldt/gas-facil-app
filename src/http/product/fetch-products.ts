@@ -11,11 +11,16 @@ export async function fetchProducts(): Promise<ProductModel[] | undefined> {
     });
     const products = response.data;
 
-    return products.map((product) => {
+    return products.map(({ seller, created_at, updated_at, ...rest }) => {
       return {
-        ...product,
-        createdAt: product.created_at,
-        updatedAt: product.updated_at,
+        ...rest,
+        createdAt: created_at,
+        updatedAt: updated_at,
+        seller: {
+          name: seller.name,
+          phone: seller.phone,
+          openingHours: seller.opening_hours,
+        },
       };
     });
   } catch (error) {

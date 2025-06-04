@@ -40,7 +40,14 @@ export type findAddressParams = {
 export type fetchProductsResponse = {
   id: string;
   name: string;
-  seller: string;
+  seller: {
+    name: string;
+    phone: string;
+    opening_hours: {
+      start: number;
+      end: number;
+    };
+  };
   price: number;
   note: number;
   created_at: Date;

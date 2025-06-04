@@ -8,7 +8,10 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     paddingHorizontal: 12,
+    paddingBottom: 16,
     gap: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.gray[300],
   },
   title: {
     fontSize: 18,

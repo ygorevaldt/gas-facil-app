@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
     gap: 16,
   },
   actionsCancelButton: {
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: colors.red[800],
     color: colors.red[800],
     paddingHorizontal: 32,
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
   },
   actionsConfirmButton: {
     borderColor: colors.green[900],
-    borderWidth: 2,
+    borderWidth: 1,
     backgroundColor: colors.green[900],
     color: colors.white,
     paddingHorizontal: 32,
