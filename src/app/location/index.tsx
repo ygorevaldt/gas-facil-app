@@ -1,7 +1,6 @@
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { useUser } from "@/hooks";
-import { findAddress } from "@/http/address";
 import { cleanCep } from "@/utils";
 import * as Loc from "expo-location";
 import { router } from "expo-router";
@@ -18,14 +17,6 @@ export default function Location() {
 
   useEffect(() => {
     (async () => {
-      const userAddress = await findAddress({
-        sessionId: user.session_id,
-      });
-      if (userAddress) {
-        router.navigate("/catalog");
-        return;
-      }
-
       const permission = await getLocationPermission();
       if (!permission) return;
 
