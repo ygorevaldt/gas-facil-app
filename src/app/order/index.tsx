@@ -5,7 +5,6 @@ import { Product } from "@/components/product";
 import { Seller } from "@/components/seller";
 import { colors } from "@/constants/colors";
 import { useProduct, useUser } from "@/hooks";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Linking, Text, TouchableOpacity, View } from "react-native";
@@ -40,12 +39,16 @@ export default function Order() {
             <Text style={[styles.actionsTextButton, { color: colors.gray[500] }]}>Cancelar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.actionsConfirmButton} onPress={handleRedirectToWhatsapp}>
-            <MaterialCommunityIcons name="whatsapp" color={colors.white} size={24} />
-            <Text style={styles.actionsTextButton}>Comprar</Text>
+          <TouchableOpacity style={styles.actionsEvaluateButton} onPress={handleEvaluateProduct}>
+            <Text style={styles.actionsTextButton}>Avaliar</Text>
           </TouchableOpacity>
         </View>
-        <Button text="Avaliar produto" style={{ width: "100%" }} onPress={handleEvaluateProduct} />
+        <Button
+          text="Comprar"
+          style={{ width: "100%", backgroundColor: colors.green[900] }}
+          onPress={handleRedirectToWhatsapp}
+          icon="whatsapp"
+        />
       </LocationNavLayout>
       <EvaluateModal
         transparent

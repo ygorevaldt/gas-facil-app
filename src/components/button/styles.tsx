@@ -11,6 +11,8 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 16,
     marginBottom: 64,
+    flexDirection: "row",
+    gap: 8,
   },
   text: {
     color: colors.white,

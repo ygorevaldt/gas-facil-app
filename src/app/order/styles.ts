@@ -19,10 +19,10 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     flex: 1,
   },
-  actionsConfirmButton: {
-    borderColor: colors.green[900],
+  actionsEvaluateButton: {
+    borderColor: colors.blue[500],
     borderWidth: 1,
-    backgroundColor: colors.green[900],
+    backgroundColor: colors.blue[500],
     color: colors.white,
     paddingHorizontal: 32,
     paddingVertical: 16,
