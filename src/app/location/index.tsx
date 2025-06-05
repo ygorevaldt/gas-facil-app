@@ -18,7 +18,7 @@ export default function Location() {
   useEffect(() => {
     (async () => {
       const userAddress = await findAddress({
-        sessionId: user.sessionId,
+        sessionId: user.session_id,
       });
       if (userAddress) {
         router.navigate("/catalog");

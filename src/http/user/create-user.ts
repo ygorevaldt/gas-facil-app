@@ -4,7 +4,7 @@ import axios from "axios";
 import { CreateUserParams } from "../types";
 
 export async function createUser({ sessionId }: CreateUserParams): Promise<UserModel> {
-  const response = await axios({
+  const response = await axios<UserModel>({
     method: "POST",
     url: `${env.API_URL}/user`,
     data: {
@@ -12,12 +12,5 @@ export async function createUser({ sessionId }: CreateUserParams): Promise<UserM
     },
   });
 
-  const { id, session_id, created_at, updated_at } = response.data;
-
-  return {
-    id: id,
-    sessionId: session_id,
-    createdAt: created_at,
-    updatedAt: updated_at,
-  };
+  return response.data;
 }

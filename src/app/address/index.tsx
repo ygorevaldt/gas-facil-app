@@ -35,7 +35,7 @@ export default function Address() {
     try {
       await updateAddress({
         ...data,
-        sessionId: user.sessionId,
+        sessionId: user.session_id,
         userId: user.id,
       });
       updAddress(data);

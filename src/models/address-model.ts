@@ -10,6 +10,6 @@ export interface AddressModel {
   cep: number;
   latitude: number;
   longitude: number;
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
 }

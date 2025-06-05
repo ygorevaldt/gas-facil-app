@@ -1,5 +1,5 @@
 import { env } from "@/env";
-import { AddressModel } from "@/models/address-model";
+import { AddressModel } from "@/models";
 import axios from "axios";
 import { UpdateAddressParams } from "../types";
 
@@ -14,28 +14,21 @@ export async function updateAddress({
   sessionId,
   userId,
 }: UpdateAddressParams): Promise<AddressModel> {
-  const data = {
-    user_id: userId,
-    session_id: sessionId,
-    city,
-    district,
-    street,
-    number,
-    reference,
-    type,
-    cep,
-  };
-  const response = await axios({
+  const response = await axios<AddressModel>({
     method: "PUT",
     url: `${env.API_URL}/address`,
-    data,
+    data: {
+      user_id: userId,
+      session_id: sessionId,
+      city,
+      district,
+      street,
+      number,
+      reference,
+      type,
+      cep,
+    },
   });
 
-  const { created_at, updated_at, ...rest } = await response.data;
-
-  return {
-    ...rest,
-    updatedAt: updated_at,
-    createdAt: created_at,
-  };
+  return response.data;
 }

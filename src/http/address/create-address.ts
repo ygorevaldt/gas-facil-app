@@ -1,5 +1,5 @@
 import { env } from "@/env";
-import { AddressModel } from "@/models/address-model";
+import { AddressModel } from "@/models";
 import axios from "axios";
 import { CreateAddressParams } from "../types";
 
@@ -31,17 +31,11 @@ export async function createAddress({
     latitude,
     longitude,
   };
-  const response = await axios({
+  const response = await axios<AddressModel>({
     method: "POST",
     url: `${env.API_URL}/address`,
     data,
   });
 
-  const { created_at, updated_at, statusCode, ...rest } = await response.data;
-
-  return {
-    ...rest,
-    updatedAt: updated_at,
-    createdAt: created_at,
-  };
+  return response.data;
 }

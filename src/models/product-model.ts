@@ -4,16 +4,16 @@ export interface ProductModel {
   seller: Seller;
   price: number;
   note: number;
-  sumNote: number;
-  amountNotes: number;
-  createdAt: Date;
-  updatedAt: Date;
+  sum_note: number;
+  amount_notes: number;
+  created_at: Date;
+  updated_at: Date;
 }
 
 export type Seller = {
   name: string;
   phone: string;
-  openingHours: OpeningHours;
+  opening_hours: OpeningHours;
 };
 
 export type OpeningHours = {

@@ -3,22 +3,26 @@ import { ProductModel } from "@/models/product-model";
 import axios from "axios";
 
 export async function evaluateProduct(product: ProductModel, note: number) {
-  const sumNote = product.sumNote + note;
-  const amountNotes = product.amountNotes + 1;
+  const sumNote = product.sum_note + note;
+  const amountNotes = product.amount_notes + 1;
   product.note = sumNote / amountNotes;
-
-  console.log(sumNote);
-  console.log(amountNotes);
-  console.log(product.note);
 
   const data = {
     sum_note: sumNote,
     amount_notes: amountNotes,
     note: product.note,
   };
-  await axios({
-    method: "PUT",
-    url: `${env.API_URL}/product`,
-    data,
-  });
+  const response = (
+    await axios<ProductModel>({
+      method: "PUT",
+      url: `${env.API_URL}/product`,
+      data,
+    })
+  ).data;
+
+  return {
+    note: response.note,
+    sumNote: response.sum_note,
+    amountNotes: response.amount_notes,
+  };
 }

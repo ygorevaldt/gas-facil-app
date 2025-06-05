@@ -10,6 +10,8 @@ interface ProductProps {
 }
 
 export function Product(props: ProductProps) {
+  async function handleFavoriteProduct() {}
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -20,7 +22,7 @@ export function Product(props: ProductProps) {
             <Text style={styles.seller}>{props.product.seller.name}</Text>
           </View>
         </View>
-        <TouchableOpacity activeOpacity={0.7}>
+        <TouchableOpacity activeOpacity={0.7} onPress={handleFavoriteProduct}>
           <MaterialIcons name={"bookmark-outline"} size={32} />
         </TouchableOpacity>
       </View>

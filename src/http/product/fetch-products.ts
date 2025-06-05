@@ -1,31 +1,15 @@
 import { env } from "@/env";
-import { ProductModel } from "@/models/product-model";
+import { ProductModel } from "@/models";
 import axios from "axios";
-import { fetchProductsResponse } from "../types";
 
 export async function fetchProducts(): Promise<ProductModel[] | undefined> {
   try {
-    const response = await axios<fetchProductsResponse[]>({
+    const response = await axios<ProductModel[]>({
       method: "GET",
       url: `${env.API_URL}/product`,
     });
-    const products = response.data;
-
-    return products.map(({ seller, sum_note, amount_notes, created_at, updated_at, ...rest }) => {
-      return {
-        ...rest,
-        sumNote: sum_note,
-        amountNotes: amount_notes,
-        createdAt: created_at,
-        updatedAt: updated_at,
-        seller: {
-          name: seller.name,
-          phone: seller.phone,
-          openingHours: seller.opening_hours,
-        },
-      };
-    });
+    return response.data;
   } catch (error) {
-    return undefined;
+    return [];
   }
 }

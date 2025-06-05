@@ -6,7 +6,7 @@ export default function saved() {
   return (
     <LocationNavLayout title="Produtos salvos">
       <Filter />
-      <ProductsList />
+      <ProductsList bookmarks={true} />
     </LocationNavLayout>
   );
 }

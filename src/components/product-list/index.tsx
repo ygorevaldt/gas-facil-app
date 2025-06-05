@@ -1,3 +1,4 @@
+import { useUser } from "@/hooks";
 import { fetchProducts } from "@/http/product";
 import { fetchFavoriteProducts } from "@/http/product/fetch-favorite-products";
 import { ProductModel } from "@/models/product-model";
@@ -12,12 +13,13 @@ export interface ProductsListProps {
 }
 
 export function ProductsList(props: ProductsListProps) {
+  const { user } = useUser();
   const [products, setProducts] = useState<ProductModel[]>([]);
 
   useEffect(() => {
     (async () => {
       const registeredProducts = props.bookmarks
-        ? await fetchFavoriteProducts()
+        ? await fetchFavoriteProducts(user.id)
         : await fetchProducts();
       if (!registeredProducts) return;
 

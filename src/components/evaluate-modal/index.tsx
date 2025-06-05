@@ -1,3 +1,4 @@
+import { useProduct } from "@/hooks";
 import { evaluateProduct } from "@/http/product";
 import { ProductModel } from "@/models/product-model";
 import { useState } from "react";
@@ -12,10 +13,17 @@ interface EvaluateModalProps extends ModalProps {
 
 export function EvaluateModal({ product, setShowModal, ...rest }: EvaluateModalProps) {
   const [rating, setRating] = useState(0);
+  const { setSelectedProduct } = useProduct();
 
   async function handleConfirm() {
     try {
-      await evaluateProduct(product, rating);
+      const { note, sumNote, amountNotes } = await evaluateProduct(product, rating);
+      setSelectedProduct({
+        ...product,
+        note,
+        sum_note: sumNote,
+        amount_notes: amountNotes,
+      });
       setShowModal(false);
     } catch (error) {
       Alert.alert("Erro", "Não foi possível avaliar o produto, tente novamente mais tarde");

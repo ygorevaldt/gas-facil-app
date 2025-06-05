@@ -36,22 +36,3 @@ export type FindUserBySessionIdParams = {
 export type findAddressParams = {
   sessionId: string;
 };
-
-export type fetchProductsResponse = {
-  id: string;
-  name: string;
-  seller: {
-    name: string;
-    phone: string;
-    opening_hours: {
-      start: number;
-      end: number;
-    };
-  };
-  price: number;
-  note: number;
-  sum_note: number;
-  amount_notes: number;
-  created_at: Date;
-  updated_at: Date;
-};

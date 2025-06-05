@@ -1,6 +1,7 @@
 export interface UserModel {
   id: string;
-  sessionId: string;
-  createdAt: Date;
-  updatedAt: Date;
+  session_id: string;
+  bookmarks: string[];
+  created_at: Date;
+  updated_at: Date;
 }

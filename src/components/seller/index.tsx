@@ -28,8 +28,8 @@ export function Seller(props: SellerProps) {
         <View style={styles.contentItem}>
           <Text style={styles.label}>Horário de atendimento:</Text>
           <Text>
-            {`${formatOpeningHour(props.seller.openingHours.start)} às ${formatOpeningHour(
-              props.seller.openingHours.end
+            {`${formatOpeningHour(props.seller.opening_hours.start)} às ${formatOpeningHour(
+              props.seller.opening_hours.end
             )}`}
           </Text>
         </View>

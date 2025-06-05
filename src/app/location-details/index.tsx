@@ -43,7 +43,7 @@ export default function LocationDetails() {
     try {
       await createAddress({
         ...data,
-        sessionId: user.sessionId,
+        sessionId: user.session_id,
         userId: user.id,
         number: Number(data.number),
       });
@@ -55,7 +55,7 @@ export default function LocationDetails() {
       ]);
     } catch (error) {
       Alert.alert("Endereço", "Não foi possível salvar o endereço");
-      console.log(`Error to save address to user ${user.sessionId}`);
+      console.log(`Error to save address to user ${user.session_id}`);
       if (error instanceof AxiosError) console.error(error.response?.data);
     }
   };
