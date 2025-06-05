@@ -11,9 +11,9 @@ export function LocationHeader() {
     <View style={styles.container}>
       <MaterialIcons name="location-pin" color={colors.blue[500]} size={32} />
       <View>
-        <Text style={styles.title}>{`${address?.street}, ${address?.number}`}</Text>
+        <Text style={styles.title}>{`${address?.street ?? ""}, ${address?.number ?? ""}`}</Text>
         <Text style={styles.subtitle}>
-          {`${address?.district}, ${address?.city} - ${formatCep(address?.cep!)}`}
+          {`${address?.district ?? ""}, ${address?.city ?? ""} - ${formatCep(address?.cep!) ?? ""}`}
         </Text>
       </View>
     </View>

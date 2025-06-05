@@ -17,7 +17,11 @@ export default function Order() {
 
   async function handleRedirectToWhatsapp() {
     const message = encodeURIComponent(
-      `Olá, gostaria de comprar um ${selectedProduct?.name} \nO endereço para entrega é: \nCidade: ${address?.city} \nBairro: ${address?.district} \nRua: ${address?.street} \nNúmero: ${address?.number}`
+      `Olá, gostaria de comprar um ${
+        selectedProduct?.name ?? ""
+      } \nO endereço para entrega é: \nCidade: ${address?.city ?? ""} \nBairro: ${
+        address?.district ?? ""
+      } \nRua: ${address?.street ?? ""} \nNúmero: ${address?.number ?? ""}`
     );
     const rawPhone = selectedProduct?.seller?.phone ?? "";
     const sanitizedPhone = rawPhone.startsWith("55") ? rawPhone.slice(2) : rawPhone;
