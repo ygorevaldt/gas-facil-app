@@ -16,7 +16,7 @@ export function NavigationBottomBar() {
       />
       <NavItem
         icon="bookmark-outline"
-        target="/saved"
+        target="/bookmarks"
         onSelect={() => setSelected("bookmark-outline")}
         selected={selected === "bookmark-outline"}
       />

@@ -1,6 +1,23 @@
-import { TextInput } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
+import { TextInput, View } from "react-native";
 import { styles } from "./styles";
 
-export function Filter() {
-  return <TextInput style={styles.container} placeholder="Buscar produtos" />;
+interface FilterProps {
+  search: string;
+  onSearchChange: (text: string) => void;
+}
+
+export function Filter(props: FilterProps) {
+  return (
+    <View style={styles.container}>
+      <MaterialIcons name="search" size={20} color="#888" style={styles.icon} />
+      <TextInput
+        style={styles.input}
+        placeholder="Buscar produtos"
+        placeholderTextColor="#888"
+        value={props.search}
+        onChangeText={props.onSearchChange}
+      />
+    </View>
+  );
 }

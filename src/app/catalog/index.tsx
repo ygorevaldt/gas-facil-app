@@ -1,13 +1,15 @@
 import { Filter } from "@/components/filter";
 import { LocationNavLayout } from "@/components/location-nav-layout";
 import { ProductsList } from "@/components/product-list";
-import "react-native-get-random-values";
+import { useState } from "react";
 
 export default function Caralog() {
+  const [search, setSearch] = useState("");
+
   return (
     <LocationNavLayout title="Catalogo">
-      <Filter />
-      <ProductsList />
+      <Filter search={search} onSearchChange={setSearch} />
+      <ProductsList search={search} />
     </LocationNavLayout>
   );
 }
