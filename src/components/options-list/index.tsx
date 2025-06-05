@@ -7,10 +7,11 @@ import { styles } from "./styles";
 interface OptionsList {
   label?: string;
   onSelect?: (value: string) => void;
+  type?: string;
 }
 
 export function OptionsList(props: OptionsList) {
-  const [selected, setSelected] = useState<string>(addressTypes[0].text);
+  const [selected, setSelected] = useState<string>(props.type ?? "");
 
   const handleSelect = (value: string) => {
     setSelected(value);

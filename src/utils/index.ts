@@ -1,3 +1,4 @@
+export * from "./clean-cep";
 export * from "./client-id";
 export * from "./format-cep";
 export * from "./format-currency";

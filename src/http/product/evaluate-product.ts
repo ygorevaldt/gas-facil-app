@@ -8,6 +8,7 @@ export async function evaluateProduct(product: ProductModel, note: number) {
   product.note = sumNote / amountNotes;
 
   const data = {
+    id: product.id,
     sum_note: sumNote,
     amount_notes: amountNotes,
     note: product.note,
@@ -20,9 +21,5 @@ export async function evaluateProduct(product: ProductModel, note: number) {
     })
   ).data;
 
-  return {
-    note: response.note,
-    sumNote: response.sum_note,
-    amountNotes: response.amount_notes,
-  };
+  return response;
 }

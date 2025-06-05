@@ -26,6 +26,6 @@ export const menus: Menu[] = [
     id: uuid(),
     name: "Produtos salvos",
     icon: "bookmark-outline",
-    action: () => router.push("/saved"),
+    action: () => router.push("/bookmarks"),
   },
 ];

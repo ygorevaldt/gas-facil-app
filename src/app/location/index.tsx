@@ -2,6 +2,7 @@ import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { useUser } from "@/hooks";
 import { findAddress } from "@/http/address";
+import { cleanCep } from "@/utils";
 import * as Loc from "expo-location";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
@@ -57,7 +58,7 @@ export default function Location() {
         street: street || undefined,
         city: city || undefined,
         district: region || undefined,
-        cep: postalCode ? Number(postalCode) : undefined,
+        cep: postalCode ? Number(cleanCep(postalCode)) : undefined,
         latitude: currentLocation.coords.latitude,
         longitude: currentLocation.coords.longitude,
       });

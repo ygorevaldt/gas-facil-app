@@ -1,5 +1,6 @@
 import { env } from "@/env";
 import { AddressModel } from "@/models";
+import { cleanCep } from "@/utils";
 import axios from "axios";
 import { CreateAddressParams } from "../types";
 
@@ -27,7 +28,7 @@ export async function createAddress({
     complement,
     reference,
     type,
-    cep,
+    cep: cleanCep(cep?.toString()!),
     latitude,
     longitude,
   };

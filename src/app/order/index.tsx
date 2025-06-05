@@ -19,8 +19,10 @@ export default function Order() {
     const message = encodeURIComponent(
       `Olá, gostaria de comprar um ${selectedProduct?.name} \nO endereço para entrega é: \nCidade: ${address?.city} \nBairro: ${address?.district} \nRua: ${address?.street} \nNúmero: ${address?.number}`
     );
+    const rawPhone = selectedProduct?.seller?.phone ?? "";
+    const sanitizedPhone = rawPhone.startsWith("55") ? rawPhone.slice(2) : rawPhone;
 
-    const url = `https://wa.me/55${selectedProduct?.seller.phone}?text=${message}`;
+    const url = `https://wa.me/55${sanitizedPhone}?text=${message}`;
 
     Linking.openURL(url).catch((err) => console.error("Erro ao abrir o WhatsApp:", err));
   }

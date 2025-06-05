@@ -17,13 +17,8 @@ export function EvaluateModal({ product, setShowModal, ...rest }: EvaluateModalP
 
   async function handleConfirm() {
     try {
-      const { note, sumNote, amountNotes } = await evaluateProduct(product, rating);
-      setSelectedProduct({
-        ...product,
-        note,
-        sum_note: sumNote,
-        amount_notes: amountNotes,
-      });
+      const updatedProduct = await evaluateProduct(product, rating);
+      setSelectedProduct(Object.assign(product, updatedProduct));
       setShowModal(false);
     } catch (error) {
       Alert.alert("Erro", "Não foi possível avaliar o produto, tente novamente mais tarde");

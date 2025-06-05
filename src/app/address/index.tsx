@@ -142,7 +142,10 @@ export default function Address() {
           )}
         />
 
-        <OptionsList onSelect={(selected) => setValue("type", selected || "Casa")} />
+        <OptionsList
+          onSelect={(selected) => setValue("type", selected || "Casa")}
+          type={address?.type}
+        />
       </View>
 
       <View style={styles.actions}>
