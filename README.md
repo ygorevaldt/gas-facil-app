@@ -50,3 +50,7 @@ npm install
 ```bash
 npm run start
 ```
+
+## Licença
+
+Este projeto está licenciado sob a licença [Creative Commons Attribution-NonCommercial 4.0 International](http://creativecommons.org/licenses/by-nc/4.0/).
