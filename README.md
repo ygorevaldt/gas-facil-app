@@ -1,50 +1,52 @@
-# Welcome to your Expo app 👋
+# 🚀 Gas Fácil App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo desenvolvido em **React Native** com **Expo** para conectar clientes e fornecedores de gás de cozinha de forma rápida e eficiente.
 
-## Get started
+## 📌 Sobre o Projeto
 
-1. Install dependencies
+O **Gas Fácil App** tem como objetivo facilitar a compra de gás de cozinha, conectando consumidores a fornecedores próximos, garantindo praticidade e segurança na entrega.
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Tecnologias Utilizadas
 
-2. Start the app
+- ⚛️ **React Native** - Framework para desenvolvimento mobile
+- 🏗️ **Expo** - Plataforma para desenvolvimento e deploy de apps
+- 🔥 **Localização** - Para preenchimento de endereços de forma rápida e padronizada
 
-   ```bash
-   npx expo start
-   ```
+## ✨ Funcionalidades disponíveis
 
-In the output, you'll find options to open the app in a
+O **Gas Fácil App** conta com diversas funcionalidades que tornam a experiência do usuário mais prática e eficiente:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+✅ **Listagem de produtos** disponíveis para compra  
+✅ **Avaliação de produtos** para ajudar outros consumidores  
+✅ **Contato direto com o vendedor** via WhatsApp para realizar a compra  
+✅ **Cadastro e atualização de endereço de entrega** para maior comodidade  
+✅ **Visualização da nota de avaliação dos produtos** para escolher as melhores opções  
+✅ **Consulta de informações sobre o entregador**, garantindo segurança na entrega  
+✅ **Salvar produtos como favoritos** para compras futuras  
+✅ **Listagem de produtos favoritos** para facilitar a escolha
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📦 Instalação
 
-## Get a fresh project
-
-When you're ready, run:
+Siga os passos abaixo para rodar o projeto localmente:
 
 ```bash
-npm run reset-project
+# Clone o repositório
+git clone https://github.com/ygorevaldt/gas-facil-app.git
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+```bash
+# Acesse a pasta do projeto
+cd gas-facil-app
+```
 
-## Learn more
+# Instale as dependências
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm install
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# Inicie o projeto
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm run start
+```
