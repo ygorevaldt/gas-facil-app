@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   },
   formInputs: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "space-between",
     gap: 16,
   },

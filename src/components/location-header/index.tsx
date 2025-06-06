@@ -7,14 +7,16 @@ import { styles } from "./styles";
 
 export function LocationHeader() {
   const { address } = useUser();
+  const titleParts = [address?.street, address?.number].filter(Boolean).join(", ");
+  const subtitleParts = [address?.district, address?.city].filter(Boolean).join(", ");
+  const formattedCep = address?.cep ? formatCep(address.cep) : "";
+
   return (
     <View style={styles.container}>
       <MaterialIcons name="location-pin" color={colors.blue[500]} size={32} />
       <View>
-        <Text style={styles.title}>{`${address?.street ?? ""}, ${address?.number ?? ""}`}</Text>
-        <Text style={styles.subtitle}>
-          {`${address?.district ?? ""}, ${address?.city ?? ""} - ${formatCep(address?.cep!) ?? ""}`}
-        </Text>
+        <Text style={styles.title}>{titleParts}</Text>
+        <Text style={styles.subtitle}>{`${subtitleParts} - ${formattedCep}`}</Text>
       </View>
     </View>
   );

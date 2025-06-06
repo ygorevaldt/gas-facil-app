@@ -11,7 +11,7 @@ interface OptionsList {
 }
 
 export function OptionsList(props: OptionsList) {
-  const [selected, setSelected] = useState<string>(props.type ?? "");
+  const [selected, setSelected] = useState<string>(props.type ?? "Casa");
 
   const handleSelect = (value: string) => {
     setSelected(value);

@@ -34,9 +34,9 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
           user = await createUser({ sessionId });
           setUserData({ user, address });
         } catch (error) {
-          console.log(`Error to sabe user with session_id: ${sessionId}`);
+          console.log(`Error to save user with session_id: ${sessionId}`);
           if (error instanceof AxiosError) {
-            console.error(error.response?.data);
+            console.error(error);
           }
         }
       } else {
