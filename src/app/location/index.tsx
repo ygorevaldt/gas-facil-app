@@ -19,18 +19,23 @@ export default function Location() {
 
   useEffect(() => {
     (async () => {
-      const permission = await getLocationPermission();
-      if (!permission) {
-        Alert.alert(
-          "Acesso a localização",
-          "Você precisa fornecer o acesso a sua localização para continuar."
-        );
-        setLocationDenied(true);
-        return;
-      }
+      try {
+        const permission = await getLocationPermission();
+        if (!permission) {
+          Alert.alert(
+            "Acesso a localização",
+            "Você precisa fornecer o acesso a sua localização para continuar."
+          );
+          setLocationDenied(true);
+          return;
+        }
 
-      const currentLocation = await getCurrentLocation();
-      await getAddressFromCoodenates(currentLocation);
+        const currentLocation = await getCurrentLocation();
+        await getAddressFromCoodenates(currentLocation);
+      } catch (error) {
+        Alert.alert("Localização", "Não foi possivel obter a sua localização");
+        console.error(error);
+      }
     })();
   }, []);
 
@@ -63,8 +68,8 @@ export default function Location() {
         city: city || undefined,
         district: district || undefined,
         cep: postalCode ? Number(cleanCep(postalCode)) : undefined,
-        latitude: currentLocation.coords.latitude,
-        longitude: currentLocation.coords.longitude,
+        latitude: currentLocation?.coords?.latitude,
+        longitude: currentLocation?.coords?.longitude,
       });
     }
   }
@@ -93,7 +98,7 @@ export default function Location() {
           editable={false}
         />
       </View>
-      {location ? (
+      {location && location?.latitude && location?.longitude ? (
         <MapView
           style={styles.map}
           initialRegion={{
