@@ -54,9 +54,13 @@ export default function LocationDetails() {
         },
       ]);
     } catch (error) {
-      Alert.alert("Endereço", "Não foi possível salvar o endereço");
+      Alert.alert(
+        "Endereço",
+        "Não foi possível salvar o endereço, revise as informações no menu 'Atualizar endereço'"
+      );
       console.log(`Error to save address to user ${user.session_id}`);
       if (error instanceof AxiosError) console.error(error.response?.data);
+      router.navigate("/catalog");
     }
   };
 

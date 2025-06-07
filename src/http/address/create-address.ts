@@ -28,7 +28,7 @@ export async function createAddress({
     complement,
     reference,
     type,
-    cep: cleanCep(cep?.toString()!),
+    cep: cep ? cleanCep(cep.toString()) : 0,
     latitude,
     longitude,
   };
