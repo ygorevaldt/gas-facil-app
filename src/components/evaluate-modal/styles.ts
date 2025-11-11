@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: colors.blue[500],
+    borderColor: colors.orange[500],
     elevation: 16,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: "bold",
   },
   actions: {
@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
   },
   confirmText: {
     textAlign: "center",
-    color: colors.blue[500],
+    color: colors.green[500],
     fontSize: 16,
     fontWeight: "bold",
   },

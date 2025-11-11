@@ -5,23 +5,28 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     borderWidth: 1,
-    borderColor: colors.blue[500],
+    borderColor: colors.orange[500],
     borderRadius: 4,
-    paddingVertical: 6,
-    paddingHorizontal: 16,
-    backgroundColor: colors.blue[200],
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: colors.white,
   },
   content: {
-    width: "100%",
-    flexDirection: "row",
     gap: 8,
-    alignItems: "center",
     justifyContent: "flex-start",
+    textAlign: "left",
+    paddingHorizontal: 16,
   },
   contentInfo: {},
-  image: {
-    height: 70,
-    width: 70,
+  imageContainer: {
+    height: 115,
+    width: 120,
+    borderWidth: 1,
+    borderColor: colors.orange[500],
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   product: {
     fontSize: 16,
@@ -34,14 +39,14 @@ export const styles = StyleSheet.create({
   evaluation: {
     textAlign: "right",
   },
-  price: {
-    textAlign: "right",
-    color: colors.green[900],
-    fontWeight: "bold",
-    fontSize: 16,
-  },
   starRating: {
     width: "100%",
-    alignItems: "flex-end",
+    alignItems: "flex-start",
+  },
+  price: {
+    textAlign: "left",
+    color: colors.green[500],
+    fontWeight: "bold",
+    fontSize: 14,
   },
 });

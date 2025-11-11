@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-start",
     paddingTop: 75,
     padding: 15,
-    backgroundColor: colors.blue[500],
+    backgroundColor: colors.orange[500],
   },
   headerText: {
     fontSize: 20,
@@ -23,15 +23,21 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    gap: 40,
   },
   image: {
     width: "70%",
+  },
+  appName: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: colors.orange[500]
   },
   button: {
     width: "70%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.blue[500],
+    backgroundColor: colors.orange[500],
     borderRadius: 10,
     paddingVertical: 16,
     marginBottom: 64,

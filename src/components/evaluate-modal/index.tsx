@@ -37,7 +37,7 @@ export function EvaluateModal({ product, setShowModal, ...rest }: EvaluateModalP
         <View style={styles.content}>
           <View style={styles.evaluateProduct}>
             <Text style={styles.title}>Avaliar produto</Text>
-            <StarRating rating={rating} onRate={setRating} size={30} />
+            <StarRating rating={rating} onRate={setRating} size={26} />
           </View>
           <View style={styles.actions}>
             <TouchableOpacity onPress={handleCancel}>

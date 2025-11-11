@@ -1,4 +1,5 @@
 import { Button } from "@/components/button";
+import { colors } from "@/constants/colors";
 import { useUser } from "@/hooks";
 import { router } from "expo-router";
 import { Image, Text, View } from "react-native";
@@ -18,8 +19,12 @@ export default function Index() {
           source={require("@/assets/logo-home.png")}
           resizeMode="contain"
         />
+        <Text style={styles.appName}>
+          Gás Fácil
+        </Text>
         <Button
-          text="Faça seu pedido"
+          style={{ backgroundColor: colors.green['500'] }}
+          text="Fazer pedido"
           onPress={address ? () => router.navigate("/catalog") : () => router.navigate("/location")}
         />
       </View>

@@ -5,10 +5,10 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     borderWidth: 1,
-    borderColor: colors.blue[500],
+    borderColor: colors.orange[500],
+    backgroundColor: colors.white,
     borderRadius: 8,
     padding: 20,
-    backgroundColor: colors.blue[200],
     gap: 16,
   },
   content: {
@@ -23,14 +23,14 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   contentInfo: {
-    fontSize: 16,
+    fontSize: 15,
   },
   image: {
     height: 70,
     width: 70,
   },
   product: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
   },
   seller: {
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
   },
   price: {
     textAlign: "right",
-    color: colors.green[900],
+    color: colors.green[500],
     fontWeight: "bold",
     fontSize: 16,
   },
@@ -51,5 +51,34 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  containerSeller: {
+    flexDirection: "column",
+    paddingVertical: 10,
+  },
+  headerSeller: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    borderTopWidth: 1,
+    borderTopColor: colors.orange[100],
+    paddingTop: 20,
+    paddingBottom: 16,
+  },
+  headerTitleSeller: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: colors.black,
+  },
+  contentSeller: {
+    gap: 4,
+  },
+  contentItemSeller: {
+    flexDirection: "row",
+    gap: 8,
+  },
+  labelSeller: {
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });

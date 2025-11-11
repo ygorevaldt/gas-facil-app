@@ -42,9 +42,9 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   actionsConfirmButton: {
-    borderColor: colors.green[900],
+    borderColor: colors.green[500],
     borderWidth: 1,
-    backgroundColor: colors.green[900],
+    backgroundColor: colors.green[500],
     color: colors.white,
     paddingHorizontal: 32,
     paddingVertical: 16,

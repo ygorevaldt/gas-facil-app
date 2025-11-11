@@ -1,7 +1,6 @@
 import { NavigationBottomBar } from "@/components/navigation-bottom-bar";
 import { colors } from "@/constants/colors";
 import { menus } from "@/constants/menus";
-import { CLIENT_NAME } from "@/constants/names";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
@@ -10,8 +9,7 @@ export default function Menu() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Olá,</Text>
-        <Text style={styles.headerTitle}>{CLIENT_NAME}</Text>
+        <Text style={styles.headerTitle}>Menu de opções</Text>
       </View>
       <FlatList
         data={menus}
@@ -23,7 +21,7 @@ export default function Menu() {
               style={styles.listItemIcon}
               name={item.icon}
               size={24}
-              color={colors.blue[500]}
+              color={colors.green[500]}
             />
             <Text style={styles.listItemText}>{item.name}</Text>
           </TouchableOpacity>

@@ -2,7 +2,6 @@ import { Button } from "@/components/button";
 import { EvaluateModal } from "@/components/evaluate-modal";
 import { LocationNavLayout } from "@/components/location-nav-layout";
 import { Product } from "@/components/product";
-import { Seller } from "@/components/seller";
 import { colors } from "@/constants/colors";
 import { useProduct, useUser } from "@/hooks";
 import { router } from "expo-router";
@@ -17,10 +16,8 @@ export default function Order() {
 
   async function handleRedirectToWhatsapp() {
     const message = encodeURIComponent(
-      `Olá, gostaria de comprar um ${
-        selectedProduct?.name ?? ""
-      } \nO endereço para entrega é: \nCidade: ${address?.city ?? ""} \nBairro: ${
-        address?.district ?? ""
+      `Olá, gostaria de comprar um ${selectedProduct?.name ?? ""
+      } \nO endereço para entrega é: \nCidade: ${address?.city ?? ""} \nBairro: ${address?.district ?? ""
       } \nRua: ${address?.street ?? ""} \nNúmero: ${address?.number ?? ""}`
     );
     const rawPhone = selectedProduct?.seller?.phone ?? "";
@@ -37,12 +34,11 @@ export default function Order() {
 
   return (
     <>
-      <LocationNavLayout title="Realizar novo pedido">
-        <Product product={selectedProduct!} />
-        <Seller seller={selectedProduct?.seller!} />
+      <LocationNavLayout title="Detalhes do produto">
+        <Product product={selectedProduct!} seller={selectedProduct?.seller!} />
         <View style={styles.actions}>
           <TouchableOpacity style={styles.actionsCancelButton} onPress={() => router.back()}>
-            <Text style={[styles.actionsTextButton, { color: colors.gray[500] }]}>Cancelar</Text>
+            <Text style={[styles.actionsTextButton, { color: colors.gray[500] }]}>Voltar</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.actionsEvaluateButton} onPress={handleEvaluateProduct}>
@@ -51,7 +47,7 @@ export default function Order() {
         </View>
         <Button
           text="Comprar"
-          style={{ width: "100%", backgroundColor: colors.green[900] }}
+          style={{ width: "100%", backgroundColor: colors.green[500] }}
           onPress={handleRedirectToWhatsapp}
           icon="whatsapp"
         />

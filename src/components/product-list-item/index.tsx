@@ -20,17 +20,19 @@ export function ProductListItem(props: CatalogItemProps) {
 
   return (
     <TouchableOpacity style={styles.container} onPress={handleOnPressProduct} activeOpacity={0.7}>
-      <View style={styles.starRating}>
-        <StarRating rating={props.product.note} />
-      </View>
       <View style={styles.content}>
-        <Image style={styles.image} source={require("@/assets/gas-icon.png")} />
         <View style={styles.contentInfo}>
           <Text style={styles.product}>{props.product.name}</Text>
           <Text style={styles.seller}>{props.product.seller.name}</Text>
         </View>
+        <View style={styles.starRating}>
+          <StarRating rating={props.product.note} size={15} />
+        </View>
+        <Text style={styles.price}>{formatCurrency(props.product.price)}</Text>
       </View>
-      <Text style={styles.price}>{formatCurrency(props.product.price)}</Text>
+      <View style={styles.imageContainer}>
+        <Image source={require("@/assets/gas-img.png")} />
+      </View>
     </TouchableOpacity>
   );
 }

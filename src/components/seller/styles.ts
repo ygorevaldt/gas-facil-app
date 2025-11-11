@@ -4,13 +4,13 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     width: "100%",
-    backgroundColor: colors.blue[200],
+    backgroundColor: colors.orange[200],
     borderRadius: 8,
-    borderColor: colors.blue[500],
+    borderColor: colors.orange[500],
     borderWidth: 1,
   },
   header: {
-    backgroundColor: colors.blue[500],
+    backgroundColor: colors.orange[500],
     flexDirection: "row",
     alignItems: "center",
     padding: 12,

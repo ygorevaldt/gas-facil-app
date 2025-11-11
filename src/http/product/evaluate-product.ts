@@ -16,7 +16,7 @@ export async function evaluateProduct(product: ProductModel, note: number) {
   const response = (
     await axios<ProductModel>({
       method: "PUT",
-      url: `${env.API_URL}/product`,
+      url: `${env.API_URL}/product/evaluate`,
       data,
     })
   ).data;

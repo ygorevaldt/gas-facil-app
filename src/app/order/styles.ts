@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
   actionsCancelButton: {
     borderWidth: 1,
     borderColor: colors.gray[500],
+    backgroundColor: colors.white,
     color: colors.gray[500],
     paddingHorizontal: 32,
     paddingVertical: 16,
@@ -20,9 +21,9 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   actionsEvaluateButton: {
-    borderColor: colors.blue[500],
+    borderColor: colors.orange[500],
     borderWidth: 1,
-    backgroundColor: colors.blue[500],
+    backgroundColor: colors.orange[500],
     color: colors.white,
     paddingHorizontal: 32,
     paddingVertical: 16,

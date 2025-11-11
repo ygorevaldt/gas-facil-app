@@ -15,9 +15,9 @@ export type OptionType = {
 };
 
 export function Option({ text, icon, isSelected, ...rest }: OptionProps) {
-  const iconColor = isSelected ? colors.white : colors.blue[500];
-  const backgroundColor = isSelected ? colors.blue[500] : colors.white;
-  const textColor = isSelected ? colors.white : colors.blue[500];
+  const iconColor = isSelected ? colors.white : colors.orange[500];
+  const backgroundColor = isSelected ? colors.orange[500] : colors.white;
+  const textColor = isSelected ? colors.white : colors.orange[500];
 
   return (
     <Pressable {...rest} style={[styles.container, { backgroundColor }]}>

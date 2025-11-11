@@ -4,7 +4,7 @@ export default {
   expo: {
     name: "gas-facil-app",
     slug: "gas-facil-app",
-    version: "1.0.0",
+    // version: "1.0.0",
     scheme: "gas-facil-app",
     orientation: "portrait",
     userInterfaceStyle: "light",

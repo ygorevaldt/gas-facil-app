@@ -9,15 +9,13 @@ export const styles = StyleSheet.create({
   header: {
     justifyContent: "flex-start",
     alignItems: "baseline",
-    paddingTop: 58,
+    paddingTop: 100,
     paddingHorizontal: 32,
     paddingBottom: 24,
-    backgroundColor: colors.blue[500],
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
+    backgroundColor: colors.green["500"],
   },
   headerTitle: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: "bold",
     color: colors.white,
   },

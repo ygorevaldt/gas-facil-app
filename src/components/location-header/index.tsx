@@ -13,7 +13,7 @@ export function LocationHeader() {
 
   return (
     <View style={styles.container}>
-      <MaterialIcons name="location-pin" color={colors.blue[500]} size={32} />
+      <MaterialIcons name="location-pin" color={colors.orange[500]} size={32} />
       <View>
         <Text style={styles.title}>{titleParts}</Text>
         <Text style={styles.subtitle}>{`${subtitleParts} - ${formattedCep}`}</Text>

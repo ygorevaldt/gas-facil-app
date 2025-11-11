@@ -7,7 +7,7 @@ export default function Caralog() {
   const [search, setSearch] = useState("");
 
   return (
-    <LocationNavLayout title="Catalogo">
+    <LocationNavLayout title="Catálogo">
       <Filter search={search} onSearchChange={setSearch} />
       <ProductsList search={search} />
     </LocationNavLayout>

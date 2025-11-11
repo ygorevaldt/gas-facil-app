@@ -1,14 +1,17 @@
 import { useUser } from "@/hooks";
 import { favoriteProduct } from "@/http/user/favorite-product";
-import { ProductModel } from "@/models/product-model";
-import { formatCurrency } from "@/utils";
+import { ProductModel, Seller } from "@/models/product-model";
+import { formatCurrency, formatOpeningHour, formatPhoneNumber } from "@/utils";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
 import { StarRating } from "../star-rating";
+
+import { colors } from "@/constants/colors";
 import { styles } from "./styles";
 
 interface ProductProps {
   product: ProductModel;
+  seller: Seller;
 }
 
 export function Product(props: ProductProps) {
@@ -45,6 +48,30 @@ export function Product(props: ProductProps) {
       <View style={styles.bottom}>
         <StarRating rating={props.product.note} />
         <Text style={styles.price}>{formatCurrency(props.product.price)}</Text>
+      </View>
+      <View style={styles.containerSeller}>
+        <View style={styles.headerSeller}>
+          <Text style={styles.headerTitleSeller}>Fornecedor</Text>
+          <MaterialIcons name="person" size={24} color={colors.green['900']} />
+        </View>
+        <View style={styles.contentSeller}>
+          <View style={styles.contentItemSeller}>
+            <Text style={styles.labelSeller}>Nome:</Text>
+            <Text>{props.seller.name}</Text>
+          </View>
+          <View style={styles.contentItemSeller}>
+            <Text style={styles.labelSeller}>Telefone:</Text>
+            <Text>{formatPhoneNumber(props.seller.phone)}</Text>
+          </View>
+          <View style={styles.contentItemSeller}>
+            <Text style={styles.labelSeller}>Horário de atendimento:</Text>
+            <Text>
+              {`${formatOpeningHour(props.seller.opening_hours.start)} às ${formatOpeningHour(
+                props.seller.opening_hours.end
+              )}`}
+            </Text>
+          </View>
+        </View>
       </View>
     </View>
   );
