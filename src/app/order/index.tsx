@@ -47,7 +47,7 @@ export default function Order() {
         </View>
         <Button
           text="Comprar"
-          style={{ width: "100%", backgroundColor: colors.green[500] }}
+          style={{ width: "100%", backgroundColor: colors.green[500], marginBottom: 24 }}
           onPress={handleRedirectToWhatsapp}
           icon="whatsapp"
         />
