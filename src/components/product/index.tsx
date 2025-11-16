@@ -31,7 +31,7 @@ export function Product(props: ProductProps) {
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.contentHeader}>
-          <Image style={styles.image} source={require("@/assets/gas-icon.png")} />
+          <Image style={styles.image} source={require("@/assets/gas-img.png")} />
           <View>
             <Text style={styles.product}>{props.product.name}</Text>
             <Text style={styles.seller}>{props.product.seller.name}</Text>
