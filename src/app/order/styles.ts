@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 16,
-    marginTop: 32,
+    marginTop: 16,
   },
   actionsCancelButton: {
     borderWidth: 1,

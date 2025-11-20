@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 8,
     padding: 20,
-    gap: 16,
+    gap: 8,
   },
   content: {
     flexDirection: "row",
